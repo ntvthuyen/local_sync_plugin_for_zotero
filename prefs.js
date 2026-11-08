@@ -1,0 +1,9 @@
+pref("extensions.lansync.port", "23120");
+pref("extensions.lansync.peer", "");
+pref("extensions.lansync.token", "");
+pref("extensions.lansync.autoSyncMinutes", "0");
+pref("extensions.lansync.syncGroups", true);
+pref("extensions.lansync.syncLinkedFiles", true);
+pref("extensions.lansync.deviceID", "");
+pref("extensions.lansync.state", "{}");
+pref("extensions.lansync.lastResult", "");

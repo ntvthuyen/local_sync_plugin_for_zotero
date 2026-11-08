@@ -1,0 +1,66 @@
+<vbox id="lansync-prefpane" onload="Zotero.LanSync.initPrefPane(document)">
+  <groupbox>
+    <label><html:h2>Local Sync</html:h2></label>
+    <description>
+      Install this plugin on both computers. Use the same shared token on both,
+      and enter the other computer's address as the peer.
+    </description>
+    <label id="lansync-self" value=""/>
+  </groupbox>
+
+  <groupbox>
+    <label><html:h2>Connection</html:h2></label>
+    <hbox align="center">
+      <label value="Listen on port:" style="min-width: 12em"/>
+      <html:input id="lansync-port" type="text" size="8" preference="extensions.lansync.port"/>
+    </hbox>
+    <hbox align="center">
+      <label value="Peer address (host:port):" style="min-width: 12em"/>
+      <html:input id="lansync-peer" type="text" size="30" placeholder="192.168.1.20:23120" preference="extensions.lansync.peer"/>
+    </hbox>
+    <hbox align="center">
+      <label value="Shared token:" style="min-width: 12em"/>
+      <html:input id="lansync-token" type="text" size="30" preference="extensions.lansync.token"/>
+      <button label="Generate" oncommand="Zotero.LanSync.generateToken(document)"/>
+    </hbox>
+    <hbox align="center">
+      <label value="Auto-sync every (minutes, 0 = off):" style="min-width: 12em"/>
+      <html:input id="lansync-auto" type="text" size="6" preference="extensions.lansync.autoSyncMinutes"/>
+    </hbox>
+    <hbox align="center">
+      <button label="Test connection" oncommand="Zotero.LanSync.testConnection(document)"/>
+    </hbox>
+    <html:div id="lansync-test" style="white-space: pre-wrap; font-family: monospace; font-size: smaller; margin-top: 4px; user-select: text;"></html:div>
+  </groupbox>
+
+  <groupbox>
+    <label><html:h2>What to sync</html:h2></label>
+    <checkbox id="lansync-groups" label="Group libraries (missing groups are created on the other PC)" preference="extensions.lansync.syncGroups"/>
+    <checkbox id="lansync-linked" label="Linked files (files stored outside Zotero's storage folder)" preference="extensions.lansync.syncLinkedFiles"/>
+
+  </groupbox>
+
+  <groupbox>
+    <label><html:h2>Linked files folder</html:h2></label>
+    <description>
+      If your linked PDFs live in a shared folder (for example Google Drive), choose THIS PC's copy of it.
+      Paths saved on another computer (like G:\My Drive\zotero\…) are rewritten to point into this folder,
+      so the same files open on every PC. Do this once on each PC, choosing that PC's own copy.
+    </description>
+    <label id="lansync-linked-folder" value=""/>
+    <hbox align="center">
+      <button label="Fix linked file paths…" oncommand="Zotero.LanSync.fixLinkedPaths(document)"/>
+    </hbox>
+    <html:div id="lansync-linked-status" style="white-space: pre-wrap; font-size: smaller; margin-top: 4px; user-select: text;"></html:div>
+  </groupbox>
+
+  <groupbox>
+    <label><html:h2>Sync</html:h2></label>
+    <hbox align="center">
+      <button label="Review changes…" oncommand="Zotero.LanSync.reviewChanges()"/>
+      <button label="Sync now" oncommand="Zotero.LanSync.syncNow().then(() => Zotero.LanSync.initPrefPane(document))"/>
+      <button label="Reset sync state" oncommand="Zotero.LanSync.resetState(document)"/>
+    </hbox>
+    <label id="lansync-status" value=""/>
+  </groupbox>
+</vbox>

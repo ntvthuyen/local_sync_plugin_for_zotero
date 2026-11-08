@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Local Sync for Zotero",
+  "version": "0.3.0",
+  "description": "Local Sync for Zotero: sync your Zotero libraries, group libraries, attachments and linked files directly between computers on the same local network, with a review screen to choose what to sync.",
+  "author": "You",
+  "applications": {
+    "zotero": {
+      "id": "lansync@local.zotero",
+      "update_url": "https://localhost/lansync-updates.json",
+      "strict_min_version": "6.999",
+      "strict_max_version": "*"
+    }
+  }
+}

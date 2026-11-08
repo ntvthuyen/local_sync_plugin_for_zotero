@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <title>Local Sync: Review changes</title>
+  <link rel="stylesheet" href="chrome://lansync/content/preview.css"/>
+  <script src="chrome://lansync/content/preview.js"></script>
+</head>
+<body>
+  <header>
+    <h1 id="heading">Review changes</h1>
+    <p id="summary">Loading…</p>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Filter by title, file name or library…"/>
+      <select id="filter">
+        <option value="">All changes</option>
+        <option value="new">New</option>
+        <option value="update">Updated</option>
+        <option value="conflict">Conflicts</option>
+        <option value="delete">Deletions</option>
+        <option value="file">Files only</option>
+        <option value="blocked">Can't copy</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="main"></main>
+
+  <footer>
+    <div id="selcount"></div>
+    <div id="status"></div>
+    <div class="buttons">
+      <button id="cancel">Cancel</button>
+      <button id="apply" class="primary">Sync selected</button>
+    </div>
+  </footer>
+</body>
+</html>
